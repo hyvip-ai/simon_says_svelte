@@ -8,7 +8,7 @@
   import WinModal from "./components/WinModal.svelte";
   let userEnterdColours = [];
   let flashedColor = [];
-  let red, green, blue, yellow;
+  let red, green, blue, yellow,game_board;
   let random = [];
   let round = 1;
   let score = 0;
@@ -20,6 +20,7 @@
     blue = document.querySelector(".top_right");
     yellow = document.querySelector(".bottom_right");
     green = document.querySelector(".bottom_left");
+    game_board = document.querySelector('.game_board')
     random = [red, green, blue, yellow];
     startGame();
   });
@@ -41,9 +42,12 @@
   };
   const startGame = async () => {
     updateFlashedColor();
+    game_board.classList.add('disable')
     for (let panel of flashedColor) {
       await flashPanel(panel);
     }
+    game_board.classList.remove('disable')
+
   };
   const getResults = () => {
     matchresults = matchedValues(flashedColor, userEnterdColours);
@@ -167,4 +171,5 @@
     margin-top: 15px;
     cursor: pointer;
   }
+
 </style>
