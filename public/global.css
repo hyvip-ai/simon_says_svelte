@@ -15,7 +15,7 @@ body {
 }
 .game_board.disable::after {
   position: absolute;
-  content: "Dont Click Anythig It Won't Work";
+  content: "Dont Click, It Won't Work";
   height: 100%;
   width: 100%;
   top: 0;

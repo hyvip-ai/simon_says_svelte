@@ -8,7 +8,7 @@
   import WinModal from "./components/WinModal.svelte";
   let userEnterdColours = [];
   let flashedColor = [];
-  let red, green, blue, yellow,game_board;
+  let red, green, blue, yellow, game_board;
   let random = [];
   let round = 1;
   let score = 0;
@@ -20,7 +20,7 @@
     blue = document.querySelector(".top_right");
     yellow = document.querySelector(".bottom_right");
     green = document.querySelector(".bottom_left");
-    game_board = document.querySelector('.game_board')
+    game_board = document.querySelector(".game_board");
     random = [red, green, blue, yellow];
     startGame();
   });
@@ -42,25 +42,16 @@
   };
   const startGame = async () => {
     updateFlashedColor();
-    game_board.classList.add('disable')
+    game_board.classList.add("disable");
     for (let panel of flashedColor) {
       await flashPanel(panel);
     }
-    game_board.classList.remove('disable')
-
+    game_board.classList.remove("disable");
   };
   const getResults = () => {
     matchresults = matchedValues(flashedColor, userEnterdColours);
     if (matchresults) {
       score += 1;
-      showResults(matchresults);
-    } else {
-      showResults(matchresults);
-    }
-  };
-  function showResults(result) {
-    console.log(result);
-    if (result) {
       show = true;
       data =
         "Congratulations, You are promoted to next round of simon says game be proud";
@@ -68,23 +59,22 @@
       show = true;
       data = "Oops seems like you lost , Let's starts from beginning";
     }
-  }
+  };
   const resetGame = () => {
     if (matchresults) {
       round = round + 1;
-      show = false
-      data = ''
-      userEnterdColours = []
-      startGame()
-    }
-    else{
+      show = false;
+      data = "";
+      userEnterdColours = [];
+      startGame();
+    } else {
       round = 1;
       score = 0;
-      show = false
-      data = ''
-      userEnterdColours = []
-      flashedColor = []
-      startGame()
+      show = false;
+      data = "";
+      userEnterdColours = [];
+      flashedColor = [];
+      startGame();
     }
   };
 </script>
@@ -171,5 +161,4 @@
     margin-top: 15px;
     cursor: pointer;
   }
-
 </style>
