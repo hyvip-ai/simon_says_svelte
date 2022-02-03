@@ -11,5 +11,5 @@ body {
 }
 
 .panel.active{
-  filter: brightness(50%);
+  background-color: white!important;
 }
