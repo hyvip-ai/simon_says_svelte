@@ -5,7 +5,7 @@
   export let rotation = "";
   export let className = "";
   const panleClickHandler = (e) => {
-    dispatch("panel_click", e.originalTarget.dataset.click);
+    dispatch("panel_click", e.originalTarget?.dataset.click || e.srcElement?.dataset.click);
   };
 </script>
 
